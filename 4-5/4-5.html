@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollAnimate</title>
+	<style type="text/css">
+		* {
+			margin: 0; 
+			padding: 0
+		}
+		ul {
+			list-style: none;
+			width: 355px;
+			margin: 0 auto;
+		}
+		#box {
+			position: relative;
+			top: 100px;
+			width: 450px;
+			margin: 0 auto;
+			box-shadow: 0 0 10px #ccc;
+		}
+
+		#header {
+			font-size: 20px;
+			flood-color: #FFF;
+			background-color: rgb(212, 64, 99);
+			height: 60px;
+			line-height: 60px;
+			padding-left: 20px;
+		}
+		
+		#scrollBox {
+			height: 150px;
+			background-color: #fff;
+			overflow: hidden;
+		}
+
+		body li {
+			height: 24px;
+			line-height: 24px;
+			
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<h3 id="header">课程介绍</h3>
+		<div id="scrollBox">
+			<ul id="content1">
+				<li>1 这都是最新的课程哟，快来参加</li>
+				<li>2 这都是最新的课程哟，快来参加</li>
+				<li>3 这都是最新的课程哟，快来参加</li>
+				<li>4 这都是最新的课程哟，快来参加</li>
+				<li>5 这都是最新的课程哟，快来参加</li>
+				<li>6 这都是最新的课程哟，快来参加</li>
+				<li>7 这都是最新的课程哟，快来参加</li>
+				<li>8 这都是最新的课程哟，快来参加</li>
+				<li>9 这都是最新的课程哟，快来参加</li>
+			</ul>
+			<ul id="content2"></ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var area = document.getElementById('scrollBox');
+		var content1 = document.getElementById('content1');
+		var content2 = document.getElementById('content2');
+		content2.innerHTML = content1.innerHTML;
+		function scrollUp() {
+			if (area.scrollTop >= content1.offsetHeight) {
+				area.scrollTop = 0;
+			}else{
+				area.scrollTop++;
+			}
+		}
+		var time = 50;
+		var myScroll = setInterval('scrollUp()', time);
+		area.onmouseover = function() {
+			clearInterval(myScroll);
+		}
+		area.onmouseout = function() {
+			myScroll = setInterval('scrollUp()', time);
+		}
+	</script>
+
+</body>
+</html>

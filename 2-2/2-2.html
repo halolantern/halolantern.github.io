@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选框</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		dl {
+			width: 150px;
+			margin: 10px auto;
+			padding: 10px 20px;
+			border: 1px solid #000;
+			border-radius: 5px;
+		}
+		dl dt {
+			height: 40px;
+			line-height: 40px;
+			font-size: 14px;
+			border-bottom: 1px solid #000;
+
+		}
+		ul {
+			list-style: none;
+		}
+		li {
+			margin-top: 15px;
+
+		}
+		li label {
+			padding-left: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var allCheck = document.getElementById('allCheck');
+			var selections = document.getElementsByTagName('ul')[0].getElementsByTagName('input');
+			var inverse = document.getElementsByTagName('dt')[0].getElementsByTagName('a')[0];
+			var label = document.getElementsByTagName('dt')[0].getElementsByTagName('label')[0];
+			allCheck.onclick = function() {
+				if (allCheck.checked) {
+					label.innerHTML = '全不选';
+					for (var i = 0; i < selections.length; i++) {
+						selections[i].checked = true;
+					}
+				}else {
+					label.innerHTML = '全选';
+					for (var n = 0; n < selections.length; n++) {
+						selections[n].checked = false;
+					}
+				} 
+			}
+			inverse.onclick = function() {
+				for (var i = 0; i < selections.length; i++) {
+					selections[i].checked = !selections[i].checked ;
+				}
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<dl>
+			<dt>
+				<input type="checkbox" name="allCheck" id="allCheck">
+				<label for="allCheck">全选</label>
+				<a href="#">反选</a>
+			</dt>
+			<dd>
+				<ul>
+					<li><input type="checkbox" id="check1"><label for="check1">选项</label></li>
+					<li><input type="checkbox" id="check2"><label for="check2">选项</label></li>
+					<li><input type="checkbox" id="check3"><label for="check3">选项</label></li>
+					<li><input type="checkbox" id="check4"><label for="check4">选项</label></li>
+					<li><input type="checkbox" id="check5"><label for="check5">选项</label></li>
+					<li><input type="checkbox" id="check6"><label for="check6">选项</label></li>
+					<li><input type="checkbox" id="check7"><label for="check7">选项</label></li>
+					<li><input type="checkbox" id="check8"><label for="check8">选项</label></li>
+					<li><input type="checkbox" id="check9"><label for="check9">选项</label></li>
+					<li><input type="checkbox" id="check10"><label for="chec10k">选项</label></li>
+				</ul>
+			</dd>
+		</dl>
+	</body>
+	</html>

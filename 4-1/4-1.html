@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>digoushopping</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			font-size: 12px;
+			line-height: 1.7;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		#content {
+			width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+
+		}
+
+		#content h1 {
+			color: #0088bb;
+		}
+
+		#content .item {
+			padding: 20px;
+			margin-bottom: 20px;
+			border: 1px dotted #0088bb;
+
+		}
+
+		#content .item h2 {
+			font-size: 16px;
+			font-weight: bold;
+			border-bottom: 1px solid #0088bb;
+			margin-top: 10px;
+		}
+		
+		#content .item li {
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		#content .item li img {
+			width: 230px;
+			height: 230px;
+			border: none;
+
+		}
+
+		#menu {
+			position: fixed;
+			left: 50%;
+			top: 100px;
+			width: 80px;
+			margin-left: 400px;
+
+		}
+		
+		#menu a{
+			display: block;
+			margin: 5px 0;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: bold;
+			color: #333;
+			width: 80px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+
+		#menu a:hover, #menu .current {
+			color: #fff;
+			background: #0088bb;
+		}
+	</style>
+
+	
+	<script type="text/javascript">
+
+		function hasClass(obj,cls){
+			return obj.className.match(new  RegExp("(\\s|^)" + cls + "(\\s|$)"));
+		}
+
+		function removeClass(obj,cls) {
+			if (hasClass(obj,cls)) {
+				var reg = new  RegExp("(\\s|^)" + cls + "(\\s|$)");
+				obj.className = obj.className.replace(reg,"");
+
+			}
+		}
+		
+		function addClass(obj,cls) {
+			if (!hasClass(obj,cls)) {
+				obj.className += "" + cls;
+			}
+		}
+
+
+		window.onload = function() {
+			window.onscroll = function() {
+
+				var top = document.documentElement.scrollTop || document.body.scrollTop;
+			// var top = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
+			//menu下的所有a元素
+			var menus = document.getElementById('menu').getElementsByTagName('a');
+			//所有item元素
+			var items = document.getElementById('content').getElementsByClassName('item');
+			var currentId = "";
+
+			for (var i = 0; i < items.length; i++) {
+				var item = items[i];
+				var itemTop = item.offsetTop;
+				if (top > itemTop -200 ) {
+					currentId = item.id;
+				}else {
+					break;
+				}
+			}
+
+
+			if (currentId) {
+				for (var i = 0; i < menus.length; i++) {
+					var menu = menus[i];
+					var href = menu.href.split("#");
+					if (href[href.length - 1] != currentId) {
+						removeClass(menu, "current");
+
+					}else{
+						addClass(menu, "current");
+					}
+				}
+			}
+
+		}
+
+	}
+
+
+</script>
+</head>
+
+
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#item1" class="current">1F 男装</a></li>
+			<li><a href="#item2">2F 女装</a></li>
+			<li><a href="#item3">3F 彩妆</a></li>
+			<li><a href="#item4">4F 数码</a></li>
+			<li><a href="#item5">5F 母婴</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>天地人音乐网</h1>
+		<div id="item1" class="item">
+			<h2>1F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item2" class="item">
+			<h2>2F 女装</h2>
+			<ul>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item3" class="item">
+			<h2>3F 彩妆</h2>
+			<ul>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+
+		<div id="item4" class="item">
+			<h2>4F 数码</h2>
+			<ul>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+				<li><a href="#"><img src="images/4F.png" alt=""></a></li>
+			</ul>
+		</div>
+
+		<div id="item5" class="item">
+			<h2>5F 母婴</h2>
+			<ul>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

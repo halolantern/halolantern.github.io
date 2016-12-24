@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NAVIGATION</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			font-size: 10pt;
+		}
+
+		.topmenu {
+			width: 220px;
+			border: 2px solid #E4393C;
+			padding: 0;
+			margin: 0;
+		}
+
+		.toptitle {
+			height: 40px;
+			line-height: 40px;
+			text-align: left;
+			font-size: 11pt;
+			font-weight: bold;
+			color: white;
+			background: #E4393C;
+			padding-left: 20px;
+		}
+
+		.topmenu li {
+			height: 30px;
+			line-height: 30px;
+			font-size: 11pt;
+			list-style-type: none;
+			text-align: left;
+			padding-left: 8px;
+			z-index: 3;
+			background: url(http://img.mukewang.com/5411027300014f0200220030.jpg) no-repeat right center;
+		}
+
+		.topmenu li a {
+			text-decoration: none;
+			color: #313131;
+		}
+
+		.topmenu li a:hover {
+			text-decoration: underline;
+			font-weight: bold;
+			color: #E4393C;
+		}
+
+		.topmenu li:hover {
+			border: 1px solid #DDD;
+			border-right: 0;
+			box-shadow: 0 0 8px #DDD;
+			-moz-box-shadow: 0 0 8px #DDD;
+			-webkit-box-shadow: 0 0 8px #DDD;
+			background-image: none;
+		}
+
+		.submenu {
+			display: none;
+			width: 715px;
+			position: absolute;
+			left: 220px;
+			top: 40px;
+			border: 1px solid #DDD;
+			z-index: 5;
+			background: #FFF;
+			box-shadow: 0 0 8px #DDD;
+			-moz-box-shadow: 0 0 8px #DDD;
+			-webkit-box-shadow: 0 0 8px #DDD;
+		}
+
+		.submenu_left {
+			
+			float: left;
+			width: 490px;
+			margin: 5px;
+		}
+
+		.submenu_right {
+			float: left;
+			width: 200px;
+			margin: 5px;
+		}
+
+		.topmenu li:hover .submenu {
+			display: block;
+		}
+
+		.topmenu li:hover span {
+			background-color: white;
+			display: inline-block;
+			z-index: 10;
+			width: 20px;
+			height: 30px;
+			left: 210px;
+			position: absolute;
+		}
+
+		.submenu_left dl {
+			border-bottom: 1px solid #EEE;
+			padding-bottom: 6px;
+			overflow: hidden;
+		}
+
+		.submenu_left dl dt {
+			float: left;
+			width: 60px;
+			text-align: right;
+			height: 22px;
+			line-height: 22px;
+			padding-right: 6px;
+		}
+
+		.submenu_left dl dt a {
+			color: #E4393C;
+			font-weight: bold;
+			text-decoration: underline;
+			font-size: 10pt;
+		}
+
+		.submenu_left dl dd {
+			overflow: hidden;
+		}
+
+		.submenu_left dl dd a {
+			display: block;
+			float: left;
+			border-left: 1px solid #CCC;
+			color: #737373;
+			font-size: 9pt;
+			padding: 0 8px;
+			height: 14px;
+			line-height: 14px;
+			margin: 4px 0;
+		}
+		
+		.submenu_right dl dt {
+			color: #E4393C;
+			font-weight: bold;
+			font-size: 10pt;
+		}
+
+		.submenu_right dl dd a {
+			font-size: 9pt;
+			color: #737373;
+			
+		}
+		
+		.submenu_right dl dd {
+			line-height: 22px;
+			margin-left: 0;
+		}
+
+		.submenu_right dl dd a:hover {
+			color: #737373;
+			font-weight: normal;
+		}
+	</style>
+</head>
+<body>
+	<ul class="topmenu">
+		<div class="toptitle">全部商品分类</div>
+		<li><a href="#">图书、音像、数字商品</a><span></span>
+			<div class="submenu">
+				<div class="submenu_left">
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+							<a href="#">免费</a>
+						</dd>
+					</dl>
+
+				</div>
+				<div class="submenu_right">
+					<dl>
+						<dd>
+							<img src="http://img5.iqilu.com/c/u/2012/1116/1353022504147.jpg" style="width: 150px;height: 200px; ">
+						</dd>
+					</dl>
+					<dl>
+						<dt>推荐品牌</dt>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+						<dd><a href="#">美的</a></dd>
+					</dl>
+
+				</div>
+			</div>
+		</li>
+		<li><a href="#">家用电器</a></li>
+		<li><a href="#">手机、数码</a></li>
+		<li><a href="#">电脑、办公</a></li>
+		<li><a href="#">家居、家装、家具、厨具</a></li>
+		<li><a href="#">服装内衣、珠宝首饰</a></li>
+		<li><a href="#">个护化妆</a></li>
+		<li><a href="#">鞋靴、箱包、钟表、奢侈品</a></li>
+		<li><a href="#">运动、食品、生鲜</a></li>
+		<li><a href="#">运动、食品、生鲜</a></li>
+		<li><a href="#">运动、食品、生鲜、母婴、玩具</a></li>
+		<li><a href="#">运动、食品、生鲜</a></li>
+		<li><a href="#">运动、食品、生鲜、营养保健</a></li>
+		<li><a href="#">运动、食品、生鲜</a></li>
+	</ul>
+</body>
+</html>

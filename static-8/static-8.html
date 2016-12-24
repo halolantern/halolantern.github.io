@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bing search</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: #ccc;
+		}
+
+		.bg_div {
+			background: url(images/river.jpg) no-repeat;
+			width: 1228px;
+			height: 690px;
+			margin: 0 auto;
+		}
+
+		.logo {
+			background-image: url(images/logo.png);
+			width: 107px;
+			height: 53px;
+			float: left;
+			margin: -4px 18px 0 0;
+
+		}
+
+		form {
+			float: left;
+			background-color: #FFF;
+			padding: 5px;
+
+		}
+
+		.search_input_text {
+			border: 0;
+			outline: 0;
+			height: 25px;
+			line-height: 25px;
+			float: left;
+			width: 350px;
+		}
+
+		.search_input_submit {
+			border: 0;
+			background-image: url(images/search-button.png);
+			width: 29px;
+			height: 29px;
+			float: left;
+
+		}
+
+		.search_box {
+			position: absolute;
+			left: 300px;
+			top: 200px;
+
+		}
+
+		.suggest {
+			width: 388px;
+			background-color: #FFF;
+			border: 1px solid #999;
+
+		}
+
+		.suggest ul {
+			list-style: none;
+
+		}
+
+		.suggest ul li {
+			padding: 3px;
+			font-size: 14px;
+			line-height: 25px; 
+			cursor: pointer;
+
+		}
+
+		.suggest ul li:hover {
+			text-decoration: underline;
+			background-color: #e5e5e5;
+		}
+	</style>
+</head>
+<body>
+	<div class="bg_div">
+		<div class="search_box">
+			<div class="logo"></div>
+			<form action="" id="search_form">
+				<input type="text" name="" class="search_input_text" id="search_input" />
+				<input type="submit" name="" value="" class="search_input_submit" />
+			</form>
+		</div>
+		
+	</div>
+	<div class="suggest" id="search_suggest" style="display: none;">
+		<ul>
+			<li>搜索结果1</li>
+			<li>搜索结果1</li>
+			<li>搜索结果1</li>
+			<li>搜索结果1</li>
+		</ul>
+	</div>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#search_input').bind('keyup', function() {
+			$('#search_suggest').show().css({
+				top:$('#search_form').offset().top + $('#search_form').height() + 10,
+				left:$('#search_form').offset().left,
+				position:'absolute'
+			});
+		});
+	</script>
+</body>
+</html>

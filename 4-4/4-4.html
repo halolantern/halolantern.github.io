@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rrlist</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {text-decoration: none;}
+
+		body {
+			font-size: 14px;
+			font-family: "微软雅黑";
+		}
+
+		#box {
+			height: auto;
+			width: 528px;
+			border: 1px solid #aaa;
+			margin: 10px auto;
+			overflow: hidden;
+		}
+
+		.top {
+			height: 40px;
+		}
+
+		.top a{
+			height: 16px;
+			width: 16px;
+			display: block;
+			float: right;
+			margin: 5px;
+		}
+
+		.btn_list_off {
+			background-color: gray;
+		}
+
+		.btn_card_on {
+			background-color: green;
+		}
+
+		.btn_card_off {
+			background-color: gray;
+		}
+
+		.btn_list_on {
+			background-color: green;
+		}
+
+		#box ul li {
+			height: auto;
+			width: 164px;
+			border: 1px solid #aaa;
+			float: left;
+			margin: 5px;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		p a, p span {
+			display: block;
+			line-height: 23px;
+			padding-left: 10px;
+		}
+
+		.bottom {
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			overflow: hidden;
+			background-color: #ccc;
+			clear: both;
+		}
+
+		.a_img {
+			width: 164px;
+			height: 164px;
+			display: block;
+			overflow: hidden;
+			float: left;
+		}
+
+		.small {
+			width: 50px;
+			height: 50px;
+			display: block;
+			overflow: hidden;
+			float: left;
+		}
+
+		.desc {
+			float: left;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function (){
+			var listbtn = document.getElementById('listbtn');
+			var cardbtn = document.getElementById('cardbtn');
+			var imgs = document.getElementsByTagName('img');
+
+			listbtn.onclick = function(){
+				this.className = "btn_list_on";
+				cardbtn.className = "btn_card_off";
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].src = "images/tyan.png";
+					imgs[i].parentNode.className = "small";
+				}
+				
+			}
+
+			cardbtn.onclick = function(){
+				this.className = "btn_card_on";
+				listbtn.className = "btn_list_off";
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].src = "images/tyanbig.png";
+					imgs[i].parentNode.className = "a_img";
+				}
+
+			}
+
+		}
+	</script>
+</head>
+<body>
+
+	<div id="box">
+		<div class="top">
+			<a href="#" title="列表模式" id="listbtn" class="btn_list_off"></a>
+			<a href="#" title="卡片模式" id="cardbtn" class="btn_card_on"></a>
+		</div>
+		<ul>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+			<li>
+				<div class="con">
+					<a href="" id="aimg" class="a_img">
+						<img src="images/tyanbig.png" alt="">
+					</a>
+					<p>
+						<a href="#">唐嫣</a>
+						<span>厦门</span>
+						<span>没有共同好友</span>
+					</p>
+				</div>
+				<div class="bottom">未分组好友</div>
+			</li>
+
+			
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>totop</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.box {
+			width: 1190px;
+			margin: 0 auto;
+		}
+		
+		#returntop{
+			position: fixed;
+			left: 1270px;
+			top: 70%;
+			width: 40px;
+			height: 40px;
+			background: url(images/top_bg.png) no-repeat ;
+			display: none;
+		}
+
+		#returntop:hover {
+			background: url(images/top_bg.png) no-repeat 0 -40px;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		window.onload = function() {
+			var clientHeight = document.documentElement.clientHeight;
+			var topbtn = document.getElementById('returntop');
+			window.onscroll = function() {
+				var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if (osTop > clientHeight) {
+					topbtn.style.display = "block";
+				}else{
+					topbtn.style.display = "none";
+				}
+
+			}	
+
+			topbtn.onclick = function() {
+				timer = setInterval(function(){
+					var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var speed = Math.ceil(osTop / 6	);
+					document.documentElement.scrollTop = document.body.scrollTop = osTop - speed;
+					console.log(osTop);
+					if (osTop == 0) {
+						clearInterval(timer);
+					}
+				},30);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<img src="images/tb_bg.jpg">
+	</div>
+	<a id="returntop" href="javascript:"></a>
+</body>
+</html>

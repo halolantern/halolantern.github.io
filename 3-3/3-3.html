@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#wrap {
+			width: 300px;
+			padding: 30px 10px;
+			margin: 10px auto;
+			text-align: center;
+			background-color: #1a1a1a;
+			font: 16px/1.5 arial;
+			color: #fff;
+		}
+		#inputTime {
+			width: 60px;
+			height: 20px;
+			margin: 20px 10px;
+			padding: 5px;
+		}
+		#wrap span {
+			display: inline-block;
+			width: 40px;
+			padding: 5px 0;
+			margin: 0 10px;
+			font-size: 15px;
+			background-color: #fff;
+			color: #000;
+			border: 2px solid #b4b4b4;
+		}
+		#start {
+			width: 283px;
+			height: 50px;
+			margin-top: 20px;
+			background: url(images/btn-1.png) no-repeat;
+			border: none;
+			outline: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oInput = document.getElementById('inputTime');
+			var oMunite = document.getElementsByTagName('span')[0];
+			var oSecond = document.getElementsByTagName('span')[1];
+			var oStart = document.getElementById('start');
+			var timer = null;
+			var time = 0;
+			var startFlag = false;
+			function setTime(time) {
+				munite =Math.floor(time / 60);
+				second = time % 60;
+				oMunite.innerHTML = munite;
+				oSecond.innerHTML = second;
+			}
+			oStart.onclick = function() {
+				if (!/^\d+$/.test(oInput.value)) {
+					alert('请输入时间（纯数字）');
+				}else{
+					time = parseInt(oInput.value);
+					startFlag = !startFlag;
+					if (startFlag) {
+						countDown();
+						timer = setInterval(countDown, 1000);
+						oStart.style.backgroundPosition = '0 -50px';
+					}else {
+						clearInterval(timer);
+						oMunite.innerHTML = 0;
+						oSecond.innerHTML = 0;
+						oStart.style.backgroundPosition = '0 0';
+					}
+				}
+
+			}
+			function countDown() {
+				setTime(time);
+				time--;
+				if (time == -1) {
+					clearInterval(timer);
+					startFlag = !startFlag;
+					oStart.style.backgroundPosition = '0 0';
+					setTimeout("alert('time up')", 500);
+				}
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<input type="text" id="inputTime">秒倒计时<br>
+		剩余：<span>0</span>分钟<span>0</span>秒
+		<button id="start"></button>
+	</div>
+</body>
+</html>

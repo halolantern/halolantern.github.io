@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易时钟</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			margin: 0;
+
+		}
+		#wrap {
+			width: 300px;
+			margin: 10px auto;
+			padding: 20px;
+			background-color: #000;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+		}
+		#wrap span {
+			padding: 0 10px;
+			color: #000;
+			background-color: #fff;
+			border: 2px solid #b4b4b4;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var hour = document.getElementById('hour');
+			var minute = document.getElementById('minute');
+			var second = document.getElementById('second');
+			function checkTime(i)
+			{
+				if (i<10) 
+					{i="0" + i}
+				return i
+			}
+			function start() {
+				var oDate = new Date();
+				hour.innerHTML = oDate.getHours();
+				minute.innerHTML = checkTime(oDate.getMinutes());
+				second.innerHTML = checkTime(oDate.getSeconds());
+			}
+			start()
+			setInterval(start, 1000);
+			
+			
+
+		}
+	</script>
+</head>
+
+
+<body>
+	<div id="wrap">
+		<span id="hour"></span>
+		时
+		<span id="minute"></span>
+		分
+		<span id="second"></span>
+		秒
+	</div>
+</body>
+</html>

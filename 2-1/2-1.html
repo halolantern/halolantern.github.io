@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出层效果</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#btn {
+			margin: 10px;
+		}
+		#layer {
+			display: none;
+			width: 400px;
+			height: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -200px;
+			margin-top: -100px;
+			border: 4px solid orange;
+			background-color: white;
+			z-index: 100;
+		}
+		#title {
+			height: 40px;
+			background-color: #fc0;
+		}
+		#close {
+			float: right;
+			margin: 10px;
+			padding: 2px;
+			background-color: #fff;
+			cursor: pointer;
+			color: #fc0;
+			font-size: 10px;
+			border: 1px solid orange;
+			font-weight: bold;
+
+		}
+		#content {
+			height: 180px;
+			border-top: 2px solid orange;
+		}
+		#cover {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0.5;
+			background-color: black;
+			z-index: 10;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementById('btn');
+			var layer = document.getElementById('layer');
+			var close = document.getElementById('close');
+			var cover = document.getElementById('cover');
+			btn.onclick = function() {
+				layer.style.display = 'block';
+				cover.style.display = 'block';
+			}
+			close.onclick = function() {
+				layer.style.display = 'none';
+				cover.style.display = 'none';
+			}
+			cover.onclick = function() {
+				layer.style.display = 'none';
+				cover.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<button id="btn">弹出层</button>
+	</center>
+
+	<div id="layer">
+		<div id="title">
+			<span id="close">×</span>
+		</div>
+		<div id="content"></div>
+	</div>
+		<div id="cover"></div>
+</body>
+</html>

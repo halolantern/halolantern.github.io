@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片轮播，渐入效果</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font: 12px/20px "Arial";
+		}
+		ul {
+			list-style: none;
+		}
+		#wrap {
+			position: relative;
+			width: 490px;
+			height: 170px;
+			margin: 0 auto;
+			padding: 10px;
+			border: 1px solid #000;
+			border-radius: 5px;
+		}
+		.list {
+			position: relative;
+			width: 490px;
+			height: 170px;
+			/*overflow: hidden;*/
+		}
+		.list li {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+		}
+		.list .current {
+			opacity: 1;
+		}
+		.count {
+			position: absolute;
+			right: 10px;
+			bottom: 15px;
+		}
+		.count li {
+			float: left;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			margin-right: 5px;
+			border-radius: 20px;
+			color: #fff;
+			background-color: #f90;
+			cursor: pointer;
+		}
+		.count .current {
+			background-color: #f60;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oImgs = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+			var oCounts = document.getElementsByTagName('ul')[1].getElementsByTagName('li');
+			var timer = null;
+			for (var i = 0; i < oCounts.length; i++) {
+				oCounts[i].index = i;
+				oCounts[i].onmouseover = function() {
+					show(this.index);
+					clearInterval(timer);
+				}
+				oCounts[i].onmouseout = function() {
+					autoPlay(this.index+1);
+				}
+			}
+
+			//显示图片
+			function show(nth) {
+				for (var n = 0; n < oCounts.length; n++) {
+					oCounts[n].className = '';
+					oImgs[n].style.opacity = 0;
+				}
+				oCounts[nth].className = 'current';
+				//图片渐入
+				var opa = 0;
+				var fadeIn = setInterval(function(){
+					opa += 0.05;
+					oImgs[nth].style.opacity = opa;
+					if (opa >= 1) {
+						clearInterval(fadeIn);
+					}
+				},20);
+				
+			}
+
+			//自动播放
+			function autoPlay(index) {
+				timer = setInterval(function(){
+					show(index);
+					index++;
+					if (index == 5) {
+						index = 0;
+					}
+				}, 2000);
+			}
+			autoPlay(1);
+		}
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul class="list">
+			<li class="current"><img src="images/01.jpg" alt=""></li>
+			<li><img src="images/02.jpg" alt=""></li>
+			<li><img src="images/03.jpg" alt=""></li>
+			<li><img src="images/04.jpg" alt=""></li>
+			<li><img src="images/05.jpg" alt=""></li>
+		</ul>
+		<ul class="count">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+</body>
+</html>

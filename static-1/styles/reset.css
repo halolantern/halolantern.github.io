@@ -1,0 +1,50 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+h1, h2, h3, h4, h5, h6 {font-weight: normal;font-size: 12px;}
+a {text-decoration: none; color: #656565;}
+ul li {list-style: none;}
+body {font-size: 12px;}
+button,input {outline: none; border: none;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-size: 12px
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*清除浮动*/
+.clearfix:after {
+	content:"";
+	display: block;
+	clear: both;
+}
+.clearfix {zoom: 1;}
+
+.fl {float: left;}
+.fr {float: right;}

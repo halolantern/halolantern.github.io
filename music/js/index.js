@@ -18,12 +18,12 @@ $(document).ready(function() {
 	var play = false;
 
 	//获取一首歌
-	function getSong() {
+	function getASong() {
 		$.ajax(
 		{
 			type: "get",
-			url: "http://api.jirengu.com/fm/getSong.php?channel=4&callback=getSong",
-			data: "{channel: 'public_aaa_bbb'}",
+			url: "http://api.jirengu.com/fm/getSong.php?callback=?",
+			data: "channel: 'public_aaa_bbb'",
 			dataType: "jsonp",
 			jsonpCallback: "getSong",
 			success: function(data) {
@@ -36,7 +36,7 @@ $(document).ready(function() {
 				var artist = song.artist;
 				var songUrl = song.url;
 				if (songUrl == null) {
-					getSong();
+					getASong();
 				}
 				$oPlayer.attr('src', songUrl);
 				$oPlayer.get(0).play();
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		// var artist = song.artist;
 		// var songUrl = song.url;
 		// if (songUrl == null) {
-		// 	getSong();
+		// 	getASong();
 		// }
 		// $oPlayer.attr('src', songUrl);
 		// $oPlayer.get(0).play();
@@ -69,7 +69,7 @@ $(document).ready(function() {
 		// });
 	}
 	//加载完后播放
-	getSong();
+	getASong();
 	setProgress();
 
 	//前度条和时间设置
@@ -104,11 +104,11 @@ $(document).ready(function() {
 
 	//下一曲按钮
 	$oNext.on('click', function() {
-		getSong();
+		getASong();
 	});
 	//上一曲按钮
 	$oPrevious.on('click', function() {
-		getSong();
+		getASong();
 	});
 	//静音
 	$oMinVolume.click(function() {
@@ -144,7 +144,7 @@ $(document).ready(function() {
 
 	//播放结束时继续随机播放
 	$oPlayer.on('ended', function() {
-		getSong();
+		getASong();
 	});
 
 	//键盘控制播放

@@ -22,9 +22,10 @@ $(document).ready(function() {
 		$.ajax(
 		{
 			type: "get",
-			url: "http://api.jirengu.com/fm/getSong.php",
+			url: "http://api.jirengu.com/fm/getSong.php?channel=4&callback=getSong",
 			data: "{channel: 'public_aaa_bbb'}",
 			dataType: "jsonp",
+			jsonpCallback: "getSong",
 			success: function(data) {
 				console.log(data);
 				// var obj = JSON.parse(data);

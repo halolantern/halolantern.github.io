@@ -24,11 +24,12 @@ $(document).ready(function() {
 			type: "get",
 			url: "http://api.jirengu.com/fm/getSong.php",
 			data: "{channel: 'public_aaa_bbb'}",
-			dataType: "text",
+			dataType: "jsonp",
 			success: function(data) {
-				var obj = JSON.parse(data);
+				console.log(data);
+				// var obj = JSON.parse(data);
 				//一首歌曲对象
-				var song = obj.song[0];
+				var song = data.song[0];
 				console.log(song);
 				var songTitle = song.title;
 				var artist = song.artist;

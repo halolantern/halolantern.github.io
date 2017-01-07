@@ -17,6 +17,7 @@ $(document).ready(function() {
 	//播放标志
 	var play = false;
 	function getSong(data) {
+		console.log('getSong');
 		console.log(data);
 	}
 	//获取一首歌
@@ -24,11 +25,12 @@ $(document).ready(function() {
 		$.ajax(
 		{
 			type: "get",
-			url: "http://api.jirengu.com/fm/getSong.php?callback=?",
+			url: "http://api.jirengu.com/fm/getSong.php?callback=?&channel=1",
 			// data: "channel: 'public_aaa_bbb'",
 			dataType: "jsonp",
 			jsonpCallback: "getSong",
 			success: function(data) {
+				console.log('ajax');
 				console.log(data);
 				// var obj = JSON.parse(data);
 				//一首歌曲对象
@@ -154,7 +156,6 @@ $(document).ready(function() {
 
 	//键盘控制播放
 	$(document).on('keyup', function(e) {
-		console.log(e);
 		switch (e.keyCode)
 		{
 			case 32:

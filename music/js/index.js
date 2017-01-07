@@ -16,14 +16,16 @@ $(document).ready(function() {
 	var timer = null;
 	//播放标志
 	var play = false;
-
+	function getSong(data) {
+		console.log(data);
+	}
 	//获取一首歌
 	function getASong() {
 		$.ajax(
 		{
 			type: "get",
 			url: "http://api.jirengu.com/fm/getSong.php?callback=?",
-			data: "channel: 'public_aaa_bbb'",
+			// data: "channel: 'public_aaa_bbb'",
 			dataType: "jsonp",
 			jsonpCallback: "getSong",
 			success: function(data) {
@@ -44,6 +46,9 @@ $(document).ready(function() {
 				play = true;
 				$oSongName.html(songTitle);
 				$oArtist.html(artist);
+			},
+			error: function(a, b, c) {
+				console.log(a, b, c);
 			}
 		}
 		);

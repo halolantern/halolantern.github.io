@@ -19,25 +19,52 @@ $(document).ready(function() {
 
 	//获取一首歌
 	function getSong() {
-		$.get('http://api.jirengu.com/fm/getSong.php',{channel: 'public_aaa_bbb'})
-		.done(function(data){
-			var obj = JSON.parse(data);
-		//一首歌曲对象
-		var song = obj.song[0];
-		console.log(song);
-		var songTitle = song.title;
-		var artist = song.artist;
-		var songUrl = song.url;
-		if (songUrl == null) {
-			getSong();
+		$.ajax(
+		{
+			type: "get",
+			url: "http://api.jirengu.com/fm/getSong.php",
+			data: "{channel: 'public_aaa_bbb'}",
+			dataType: "text",
+			success: function(data) {
+				var obj = JSON.parse(data);
+				//一首歌曲对象
+				var song = obj.song[0];
+				console.log(song);
+				var songTitle = song.title;
+				var artist = song.artist;
+				var songUrl = song.url;
+				if (songUrl == null) {
+					getSong();
+				}
+				$oPlayer.attr('src', songUrl);
+				$oPlayer.get(0).play();
+				$oPlayer.prop('volume', '0.8');
+				play = true;
+				$oSongName.html(songTitle);
+				$oArtist.html(artist);
+			}
 		}
-		$oPlayer.attr('src', songUrl);
-		$oPlayer.get(0).play();
-		$oPlayer.prop('volume', '0.8');
-		play = true;
-		$oSongName.html(songTitle);
-		$oArtist.html(artist);
-	});
+		);
+
+		// $.get('http://api.jirengu.com/fm/getSong.php',{channel: 'public_aaa_bbb'})
+		// .done(function(data){
+		// var obj = JSON.parse(data);
+		// //一首歌曲对象
+		// var song = obj.song[0];
+		// console.log(song);
+		// var songTitle = song.title;
+		// var artist = song.artist;
+		// var songUrl = song.url;
+		// if (songUrl == null) {
+		// 	getSong();
+		// }
+		// $oPlayer.attr('src', songUrl);
+		// $oPlayer.get(0).play();
+		// $oPlayer.prop('volume', '0.8');
+		// play = true;
+		// $oSongName.html(songTitle);
+		// $oArtist.html(artist);
+		// });
 	}
 	//加载完后播放
 	getSong();

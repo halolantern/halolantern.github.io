@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音乐播放器</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<audio id="player"   src="http://yinyueshiting.baidu.com/data2/music/42597135/754813864800128.mp3?xcode=54f2d5b3455c9d1331189f16455400eb"></audio>
+
+
+	<div class="musicPlayer">
+		<!-- 信息部分开始 -->
+		<div class="info">
+			<div class="left">
+				<a href="javascript:" id="like"></a>
+				<a href="javascript:" id="favorite"></a>
+			</div>
+			<div class="center">
+				<a id="song_name"></a>
+				<a id="artist"></a>
+			</div>
+			<div class="right">
+				<a href="javascript:" id="repeat"></a>
+				<a href="javascript:" id="share"></a>
+			</div>
+		</div>
+		<!-- 信息部分结束 -->
+		<div id="progress">
+			<span></span>
+		</div>
+		<!-- 控制台部分开始 -->
+		<div class="controls">
+			<div id="time">00:00</div>
+			<div class="playControl">
+				<a href="javascript:" id="previous"></a>
+				<a href="javascript:" id="start_pause" class="pause"></a>
+				<a href="javascript:" id="next"></a>
+			</div>
+			<div class="volumeControl">
+				<a href="javascript:" id="min_volume"></a>
+				<div id="volume_bar">
+					<span></span>
+				</div>
+				<a href="javascript:" id="max_volume"></a>
+			</div>
+		</div>
+		<!-- 控制台部分结束 -->
+	</div>
+
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>

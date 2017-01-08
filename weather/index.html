@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	
+    <div class="outer">
+        <!-- 五天预报开始 -->
+        <div class="titleBar clearfix">
+            <h1 class="title">厦门5天天气预报</h1>
+            <button class="submit">搜索</button>
+            <input type="text" class="search" id="search" placeholder="请输入要搜索的城市">
+        </div>
+        <ul class="fiveDay clearfix">
+            <li class="oneDay">
+                <h1 class="date"></h1>
+                <p class="wea"></p>
+                <p class="tem"></p>
+                <p class="win"></p>
+                <p class="winSpeed"></p>
+            </li>
+            <li class="oneDay">
+                <h1 class="date"></h1>
+                <p class="wea"></p>
+                <p class="tem"></p>
+                <p class="win"></p>
+                <p class="winSpeed"></p>
+            </li>
+            <li class="oneDay">
+                <h1 class="date"></h1>
+                <p class="wea"></p>
+                <p class="tem"></p>
+                <p class="win"></p>
+                <p class="winSpeed"></p>
+            </li>
+            <li class="oneDay">
+                <h1 class="date"></h1>
+                <p class="wea"></p>
+                <p class="tem"></p>
+                <p class="win"></p>
+                <p class="winSpeed"></p>
+            </li>
+            <li class="oneDay">
+                <h1 class="date"></h1>
+                <p class="wea"></p>
+                <p class="tem"></p>
+                <p class="win"></p>
+                <p class="winSpeed"></p>
+            </li>
+        </ul>
+        <!-- 五天预报结束 -->
+        <!-- 环境情况开始 -->
+        <div class="lifeTitle"><span>今日环境情况</span></div>
+        <ul class="condition clearfix">
+            <li class="pm25"></li>
+            <li class="pm10"></li>
+            <li class="quality"></li>
+            <li class="humidity"></li>
+            <li class="tem"></li>
+            <li class="curpm"></li>
+        </ul>
+        <!-- 环境情况结束 -->
+        <!-- 生活指数开始 -->
+        <div class="lifeTitle"><span>今日生活指数</span></div>
+        <ul class="life clearfix">
+            <li class="lifeItem">
+                <i class="i1"></i>
+                <h3>穿衣指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+            <li class="lifeItem">
+                <i class="i2"></i>
+                <h3>感冒指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+            <li class="lifeItem">
+                <i class="i3"></i>
+                <h3>空调指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+            <li class="lifeItem">
+                <i class="i4"></i>
+                <h3>洗车指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+            <li class="lifeItem">
+                <i class="i5"></i>
+                <h3>运动指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+            <li class="lifeItem">
+                <i class="i6"></i>
+                <h3>紫外线指数</h3>
+                <span></span>
+                <p></p>
+            </li>
+        </ul>
+        <!-- 生活指数结束 -->
+    </div>
+
+
+
+
+
+
+
+            <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+            <script type="text/javascript">
+               if (!window.jQuery) {
+                  document.write('<script src="../jQuery/jquery-3.1.1.js"><\/script>');
+              }
+          </script>
+          <script type="text/javascript" src="./js/index.js"></script>
+      </body>
+      </html>

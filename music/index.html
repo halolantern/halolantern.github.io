@@ -54,32 +54,6 @@
 			document.write('<script type="text/javascript" src="../jQuery/jquery-3.1.1.js"><'+'/script>');
 	</script>
 	<script type="text/javascript" src="./js/index.js"></script>
-	<script type="text/javascript">    
-		$.getJSON("http://api.jirengu.com/fm/getSong.php?callback=?",
-			function(data){ 
-				console.log('getJSON');
-				console.log(data);
-
-			}); 
-	</script>
-
-	<script type="text/javascript">  
-		function addScriptTag(src){
-			var script = document.createElement('script');
-			script.setAttribute("type","text/javascript");
-			script.src = src;
-			document.body.appendChild(script);
-		}
-
-		window.onload = function(){
-               
-         addScriptTag("http://api.jirengu.com/fm/getSong.php?callback=getSong");
-     	}
-       
-     	function getSong(data) {
-     		console.log('原生JS');
-     		console.log(data);
-     	}
  </script>　
 </body>
 </html>

@@ -14,37 +14,49 @@ $(document).ready(function() {
 	var $oCurrentPro = $oProgress.find('span');
 	var $oTime = $('#time');
 	var timer = null;
+	var songId = 5271858;
+	var playlist = [];
+	var curSong = 0;
 	//播放标志
 	var play = false;
-	function getSong(data) {
-		console.log('getSong');
+
+	//获取播放列表
+	function getAPlayList() {
+		$.getJSON('https://bird.ioliu.cn/netease?playlist_id=222222')
+		.done(function(data) {
+			playlist = data.data.result.tracks;
+			getASong(playlist[curSong].id);
+			setProgress();
 		console.log(data);
+		console.log(data.data.result.name);
+		for (var i = 0; i < data.data.result.tracks.length; i++) {
+			console.log(data.data.result.tracks[i].name);
+		}
+	});
 	}
 	//获取一首歌
-	function getASong() {
-		$.ajax(
-		{
+	function getASong(songId) {
+		$.ajax({
 			type: "get",
-			url: "http://api.jirengu.com/fm/getSong.php?callback=?&channel=1",
-			// data: "channel: 'public_aaa_bbb'",
+			url: "https://bird.ioliu.cn/netease",
+			data: {id: songId},
 			dataType: "jsonp",
-			jsonpCallback: "getSong",
-			success: function(data) {
-				console.log('ajax');
-				console.log(data);
+			success: function(obj) {
 				// var obj = JSON.parse(data);
-				//一首歌曲对象
-				var song = data.song[0];
-				console.log(song);
-				var songTitle = song.title;
-				var artist = song.artist;
-				var songUrl = song.url;
+				
+				if (obj.status.code != 200) {return}
+				console.log(obj);
+				var song = obj.data.songs[0];
+				
+				var songTitle = song.name;
+				var artist = song.artists[0].name;
+				var songUrl = song.mp3Url;
 				if (songUrl == null) {
 					getASong();
 				}
 				$oPlayer.attr('src', songUrl);
 				$oPlayer.get(0).play();
-				$oPlayer.prop('volume', '0.8');
+				$oPlayer.prop('volume', '0.4');
 				play = true;
 				$oSongName.html(songTitle);
 				$oArtist.html(artist);
@@ -52,32 +64,13 @@ $(document).ready(function() {
 			error: function(a, b, c) {
 				console.log(a, b, c);
 			}
-		}
-		);
-
-		// $.get('http://api.jirengu.com/fm/getSong.php',{channel: 'public_aaa_bbb'})
-		// .done(function(data){
-		// var obj = JSON.parse(data);
-		// //一首歌曲对象
-		// var song = obj.song[0];
-		// console.log(song);
-		// var songTitle = song.title;
-		// var artist = song.artist;
-		// var songUrl = song.url;
-		// if (songUrl == null) {
-		// 	getASong();
-		// }
-		// $oPlayer.attr('src', songUrl);
-		// $oPlayer.get(0).play();
-		// $oPlayer.prop('volume', '0.8');
-		// play = true;
-		// $oSongName.html(songTitle);
-		// $oArtist.html(artist);
-		// });
+		});
 	}
-	//加载完后播放
-	getASong();
-	setProgress();
+	
+	getAPlayList();
+
+	
+	
 
 	//前度条和时间设置
 	function setProgress() {
@@ -111,11 +104,20 @@ $(document).ready(function() {
 
 	//下一曲按钮
 	$oNext.on('click', function() {
-		getASong();
+		curSong++;
+		if (curSong>= playlist.length) {
+			curSong = 0;
+		}
+		getASong(playlist[curSong].id);
+
 	});
 	//上一曲按钮
 	$oPrevious.on('click', function() {
-		getASong();
+		curSong--;
+		if (curSong < 0) {
+			curSong = playlist.length - 1;
+		}
+		getASong(playlist[curSong].id);
 	});
 	//静音
 	$oMinVolume.click(function() {
@@ -151,7 +153,8 @@ $(document).ready(function() {
 
 	//播放结束时继续随机播放
 	$oPlayer.on('ended', function() {
-		getASong();
+		curSong++;
+		getASong(playlist[curSong].id);
 	});
 
 	//键盘控制播放
@@ -202,4 +205,7 @@ $(document).ready(function() {
 		$oVolume.css('width', volumePercent);
 		
 	}
+
+
+
 });

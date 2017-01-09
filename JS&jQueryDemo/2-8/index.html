@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移过改变大图</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-image: url(images/bg.jpg);
+			background-size: cover;
+		}
+		#wrap {
+			width: 208px;
+			height: 260px;
+			margin: 10px auto;
+			border-radius: 5px;
+			background-color: #fff;
+			padding: 10px;
+		}
+
+		#wrap li {
+			float: left;
+			list-style: none;
+			margin-bottom: 2px;
+			margin-right: 2px;
+			cursor: pointer;
+
+		}
+		#wrap img {
+			border-radius: 3px;
+		}
+		#wrap #bigImg,
+		#bigImg img {
+			width: 154px;
+			height: 154px;
+		}
+		li img, #wrap li {
+			width: 50px;
+			height: 50px;
+		}
+		#list {
+			position: fixed;
+			left: 20px;
+			top: 100px;
+			background-color: #fff;
+			padding: 5px;
+			box-shadow: 2px 2px 15px black;
+			list-style: none;
+			
+		}
+		#list a{
+			display: block;
+			width: 150px;
+			height: 40px;
+			margin: 5px 0;
+			padding-left: 10px;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: bold;
+			color: #333;
+			line-height: 40px;
+			text-align: left;
+		}
+
+		#list a:hover, #list .current {
+			color: #fff;
+			background: #0088bb;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var imgs = document.getElementsByTagName('img');
+			var bigImg = document.getElementById('bigImg').getElementsByTagName('img')[0];
+			for (var i = 1; i < imgs.length; i++) {
+				imgs[i].index = i;
+				imgs[i].onmouseover = function() {
+					bigImg.src = this.src.replace(/small/, "big");
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<ul id="list">
+			<li><a href="../2-1/index.html">1.选择楼层</a></li>
+			<li><a href="../2-2/index.html">2.回到顶部</a></li>
+			<li><a href="../2-3/index.html">3.tab选项卡</a></li>
+			<li><a href="../2-4/index.html">4.鼠标移过展开图片</a></li>
+			<li><a href="../2-5/index.html">5.内容滚动展示</a></li>
+			<li><a href="../2-6/index.html">6.自动轮播1</a></li>
+			<li><a href="../2-7/index.html">7.自动轮播2</a></li>
+			<li><a href="../2-8/index.html" class="current">8.修改图片路径</a></li>
+		</ul>
+	</div>
+		<ul id="wrap">
+			<li id="bigImg"><img src="images/big_1.jpg" alt=""></li>
+			<li><img src="images/small_1.jpg" alt=""></li>
+			<li><img src="images/small_2.jpg" alt=""></li>
+			<li><img src="images/small_3.jpg" alt=""></li>
+			<li><img src="images/small_4.jpg" alt=""></li>
+			<li><img src="images/small_5.jpg" alt=""></li>
+			<li><img src="images/small_6.jpg" alt=""></li>
+			<li><img src="images/small_7.jpg" alt=""></li>
+			<li><img src="images/small_8.jpg" alt=""></li>
+			<li><img src="images/small_9.jpg" alt=""></li>
+			<li><img src="images/small_10.jpg" alt=""></li>
+			<li><img src="images/small_11.jpg" alt=""></li>
+		</ul>
+	
+</body>
+</html>

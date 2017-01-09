@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>回到顶部</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.box {
+			width: 1190px;
+			margin: 0 auto;
+		}
+		
+		#returntop{
+			position: fixed;
+			left: 1270px;
+			top: 70%;
+			width: 40px;
+			height: 40px;
+			background: url(images/top_bg.png) no-repeat ;
+			display: none;
+		}
+
+		#returntop:hover {
+			background: url(images/top_bg.png) no-repeat 0 -40px;
+		}
+
+		#list {
+			position: fixed;
+			left: 20px;
+			top: 100px;
+			background-color: #fff;
+			padding: 5px;
+			box-shadow: 2px 2px 15px black;
+			list-style: none;
+			
+		}
+		#list a{
+			display: block;
+			width: 150px;
+			height: 40px;
+			margin: 5px 0;
+			padding-left: 10px;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: bold;
+			color: #333;
+			line-height: 40px;
+			text-align: left;
+		}
+
+		#list a:hover, #list .current {
+			color: #fff;
+			background: #0088bb;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		window.onload = function() {
+			var clientHeight = document.documentElement.clientHeight;
+			var topbtn = document.getElementById('returntop');
+			window.onscroll = function() {
+				var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if (osTop > clientHeight) {
+					topbtn.style.display = "block";
+				}else{
+					topbtn.style.display = "none";
+				}
+
+			}	
+
+			topbtn.onclick = function() {
+				timer = setInterval(function(){
+					var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var speed = Math.ceil(osTop / 6	);
+					document.documentElement.scrollTop = document.body.scrollTop = osTop - speed;
+					console.log(osTop);
+					if (osTop == 0) {
+						clearInterval(timer);
+					}
+				},30);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<ul id="list">
+			<li><a href="../2-1/index.html">1.选择楼层</a></li>
+			<li><a href="../2-2/index.html" class="current">2.回到顶部</a></li>
+			<li><a href="../2-3/index.html">3.tab选项卡</a></li>
+			<li><a href="../2-4/index.html">4.鼠标移过展开图片</a></li>
+			<li><a href="../2-5/index.html">5.内容滚动展示</a></li>
+			<li><a href="../2-6/index.html">6.自动轮播1</a></li>
+			<li><a href="../2-7/index.html">7.自动轮播2</a></li>
+			<li><a href="../2-8/index.html">8.修改图片路径</a></li>
+		</ul>
+	</div>
+	<div class="box">
+		<img src="images/tb_bg.jpg">
+	</div>
+	<a id="returntop" href="javascript:"></a>
+</body>
+</html>

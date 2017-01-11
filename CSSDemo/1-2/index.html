@@ -71,6 +71,8 @@
             height:350px;
             float:left;
         }
+
+        /*立方体*/
         .container1 {
             width:200px;
             height:200px;
@@ -85,9 +87,8 @@
             height:100%;
             position:absolute;
             transform-style:preserve-3d;
-            transform:translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
         }
-        .cube>div {
+        .cube div {
             width:196px;
             height:196px;
             border:2px solid #fff;
@@ -98,111 +99,109 @@
             color:#fff;
             text-align:center;
         }
+
         .front {
            background:url(../images/1.png);
            transform:rotateY(0) translateZ(100px);
+        }
+        .back {
+            background:url(../images/2.png);
+            transform:rotateY(180deg) translateZ(100px);
+        }
+        .left {
+            background:url(../images/7.png);
+            transform:rotateY(-90deg) translateZ(100px);
+        }
+        .right {
+          background:url(../images/8.png);
+          transform:rotateY(90deg) translateZ(100px);
+        }
+        .top{
+          background:url(../images/9.png);
+          transform:rotateX(90deg) translateZ(100px);
+        }
+        .bottom {
+         background:url(../images/10.png);
+         transform:rotateX(-90deg) translateZ(100px);
+        }
+
+
+        /*旋转图片*/
+        .container2 {
+            width:180px;
+            height:160px;
+            position:relative;
+            perspective:1000px;
+            margin:0 auto;
+        }
+        .carousel {
+            width:100%;
+            height:100%;
+            position:absolute;
+            transform-style:preserve-3d;
+            padding-top:100px;
+            animation:spin 30s infinite linear;
+            transform-origin: center;
+        }
+        .carousel div {
+            width:180px;
+            height:160px;
+            position:absolute;
+            border:2px solid #fff;
+
+        }
+        .carousel div:nth-child(1) {
+            background:url(../images/1.png);
+            transform:rotateY(0) translateZ(280px);
+        }
+        .carousel div:nth-child(2) {
+           background:url(../images/2.png);
+           transform:rotateY(40deg) translateZ(280px);
+        }
+       .carousel div:nth-child(3) {
+           background:url(../images/3.png);
+           transform:rotateY(80deg) translateZ(280px);
+        }
+       .carousel div:nth-child(4) {
+            background:url(../images/7.png);
+            transform:rotateY(120deg) translateZ(280px);
+        }
+        .carousel div:nth-child(5) {
+           background:url(../images/8.png);
+           transform:rotateY(160deg) translateZ(280px);
        }
-       .back {
-        background:url(../images/2.png);
-        transform:rotateY(180deg) translateZ(100px);
-    }
-    .left {
-        background:url(../images/7.png);
-        transform:rotateY(-90deg) translateZ(100px);
-    }
-    .right {
-      background:url(../images/8.png);
-      transform:rotateY(90deg) translateZ(100px);
-  }
-  .top{
-      background:url(../images/9.png);
-      transform:rotateX(90deg) translateZ(100px);
-  }
-  .bottom {
-   background:url(../images/10.png);
-   transform:rotateX(-90deg) translateZ(100px);
-}
-
-
-.container2 {
-    width:210px;
-    height:160px;
-    position:relative;
-    perspective:1000px;
-    margin:0 auto;
-}
-.carousel {
-    width:100%;
-    height:100%;
-    position:absolute;
-    transform-style:preserve-3d;
-    transform:translate(-289px) rotate3d(0deg);
-    padding-top:100px;
-    animation:spin 6s infinite linear;
-}
-.carousel>div {
-    width:186px;
-    height:160px;
-    position:absolute;
-    border:2px solid #fff;
-    line-height:160px;
-    font-size:68px;
-    text-align:center;
-    color:#fff;
-    background-size:cover;
-}
-.carousel div:nth-child(1) {
-    background:url(../images/1.png);
-    transform:rotateY(0) translateZ(288px);
-}
-.carousel div:nth-child(2) {
- background:url(../images/2.png);
- transform:rotateY(40deg) translateZ(288px);
-}
-.carousel div:nth-child(3) {
- background:url(../images/3.png);
- transform:rotateY(80deg) translateZ(288px);
-}
-.carousel div:nth-child(4) {
-    background:url(../images/7.png);
-    transform:rotateY(120deg) translateZ(288px);
-}
-.carousel div:nth-child(5) {
-   background:url(../images/8.png);
-   transform:rotateY(160deg) translateZ(288px);
-}
-.carousel div:nth-child(6) {
-    background:url(../images/9.png);
-    transform:rotateY(200deg) translateZ(288px);
-}
-.carousel div:nth-child(7) {
-    background:url(../images/10.png);
-    transform:rotateY(240deg) translateZ(288px);
-}
-.carousel div:nth-child(8) {
- background:url(../images/11.png);
- transform:rotateY(280deg) translateZ(288px);
-}
-.carousel div:nth-child(9) {
-    background:url(../images/12.png);
-    transform:rotateY(320deg) translateZ(288px);
-}
-@keyframes spin{
-    0% {
-        transform:translateZ(-288px) rotateY(0);
-    }
-    100% {
-        transform:translateZ(-288px) rotateY(40deg);
-    }
-}
-@keyframes cube {
-    0% {
-        transform:translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) ;
-    }
-    100% {
-        transform:translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-    }
-</style>
+       .carousel div:nth-child(6) {
+        background:url(../images/9.png);
+        transform:rotateY(200deg) translateZ(280px);
+        }
+        .carousel div:nth-child(7) {
+        background:url(../images/10.png);
+                transform:rotateY(240deg) translateZ(280px);
+        }
+        .carousel div:nth-child(8) {
+           background:url(../images/11.png);
+           transform:rotateY(280deg) translateZ(280px);
+        }
+        .carousel div:nth-child(9) {
+            background:url(../images/12.png);
+            transform:rotateY(320deg) translateZ(280px);
+        }
+        @keyframes spin{
+            0% {
+                transform:translateZ(-270px) rotateY(0);
+            }
+            100% {
+                transform:translateZ(-270px) rotateY(360deg);
+            }
+        }
+        @keyframes cube {
+            0% {
+                transform:translateZ(-150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) ;
+            }
+            100% {
+                transform:translateZ(-150px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+    </style>
 </head>
 <body>
     <div class='container'>
@@ -217,8 +216,8 @@
         <div class='view'>
             <ul class='view-ct clearfix'>
                 <li>
-                    <div class='container1'>
-                        <div class='cube'>
+                    <div class='container1'><!-- 舞台元素 -->
+                        <div class='cube'><!-- 容器 -->
                             <div class='front'>1</div>
                             <div class='back'>2</div>
                             <div class='left'>3</div>

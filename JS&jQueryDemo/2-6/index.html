@@ -91,7 +91,9 @@
 	</style>
 	<script type="text/javascript">
 		window.onload = function() {
+			//获取所有图片
 			var oImgs = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+			//获取所有提示图标
 			var oCounts = document.getElementsByTagName('ul')[1].getElementsByTagName('li');
 			var timer = null;
 			for (var i = 0; i < oCounts.length; i++) {
@@ -120,12 +122,12 @@
 				//图片渐入
 				var opa = 0;
 				var fadeIn = setInterval(function(){
-					opa += 0.05;
+					opa += 0.1;
 					oImgs[nth].style.opacity = opa;
 					if (opa >= 1) {
 						clearInterval(fadeIn);
 					}
-				},20);
+				},50);
 				
 			}
 

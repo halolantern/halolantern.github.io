@@ -68,6 +68,13 @@
 
 			}	
 
+			//绑定鼠标滚动事件，当回到顶部途中滚动鼠标则停止回到顶部
+			document.onmousewheel = function(e) {
+				if (e.wheelDelta) {
+					clearInterval(timer);
+				}
+			};
+			var timer = null;
 			topbtn.onclick = function() {
 				timer = setInterval(function(){
 					var osTop = document.documentElement.scrollTop || document.body.scrollTop;

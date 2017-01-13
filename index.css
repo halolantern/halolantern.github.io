@@ -3,9 +3,12 @@
 	margin: 0;
 	padding: 0;
 }
-.hide{display: none;}
-.show{display: block;}
+.hide{ display: none; opacity: 0}
+.show{ display: block; opacity: 1}
 
+body {
+	overflow-y: hidden;
+}
 #wrap {
 	width: 300px;
 	border: 1px solid #ccc;
@@ -41,4 +44,9 @@
 	list-style-type: none;
 	font-size: 12px;
 }
+
+dl dd {
+	transition: opacity 1s;
+}
+
 

@@ -6,7 +6,7 @@
 	<style type="text/css">
 		*{
 			margin: 0;
-			padding: 0
+			padding: 0;
 		}
 		#wrap{
 			width: 700px;
@@ -20,6 +20,7 @@
 			height: 128px;
 			border: 1px solid black;
 			margin: 5px;
+			filter: alpha(opacity = 30);
 			opacity: 0.3;
 		}
 	</style>
@@ -38,10 +39,12 @@
 				// })(i);
 				imgs[i].index = i;
 				imgs[i].onmouseover = function() {
+					imgs[this.index].style.filter = 'alpha(opacity=100)';
 					imgs[this.index].style.opacity = '1';
 					imgs[this.index].style.cursor = 'crosshair';
 				}
 				imgs[i].onmouseout = function() {
+					imgs[this.index].style.filter = 'alpha(opacity=30)';
 					imgs[this.index].style.opacity = '0.3';
 				}
 			}

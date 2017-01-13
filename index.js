@@ -11,10 +11,17 @@ window.onload = function() {
 					for (var n = 0; n < dls.length; n++) {
 						dls[n].getElementsByTagName('dd')[0].className = "hide";
 					}
+					console.log(cont.offsetHeight);
 					cont.className = "show";
-
+					
+					cont.style.opacity = '1';
+						
+				
 				}else {
+					cont.style.opacity = '0';
+					
 					cont.className = "hide";
+					
 				}
 			};
 		})(i);

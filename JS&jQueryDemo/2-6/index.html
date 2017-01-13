@@ -13,6 +13,7 @@
 			background: url(images/bg.jpg);
 			background-size: cover;
 		}
+
 		ul {
 			list-style: none;
 		}
@@ -89,6 +90,14 @@
 			background: #0088bb;
 		}
 	</style>
+	<!--[if lt IE 9]>
+	<style type="text/css">
+		body {
+			background-image:url();
+			background-color:#ccc;
+		}
+	</style>
+	<![endif]-->
 	<script type="text/javascript">
 		window.onload = function() {
 			//获取所有图片
@@ -116,6 +125,7 @@
 			function show(nth) {
 				for (var n = 0; n < oCounts.length; n++) {
 					oCounts[n].className = '';
+					oImgs[n].style.filter = 'alpha(opacity=0)';
 					oImgs[n].style.opacity = 0;
 				}
 				oCounts[nth].className = 'current';
@@ -123,6 +133,7 @@
 				var opa = 0;
 				var fadeIn = setInterval(function(){
 					opa += 0.1;
+					oImgs[nth].style.filter = 'alpha(opacity='+opa*100+')';
 					oImgs[nth].style.opacity = opa;
 					if (opa >= 1) {
 						clearInterval(fadeIn);

@@ -30,8 +30,9 @@
 }
 
 .searchBox {
+	width: 429px;
 	margin-top: 23px;
-	margin-left: 185px;
+	padding-left: 185px;
 }
 .search_text {
 	width: 350px;

@@ -30,13 +30,15 @@
 }
 
 .searchBox {
+	width: 429px;
 	margin-top: 23px;
-	margin-left: 185px;
+	padding-left: 185px;
 }
 .search_text {
 	width: 350px;
 	height: 35px;
 	padding: 0 5px;
+	line-height: 35px;
 }
 
 .search_btn {
@@ -488,10 +490,13 @@
 	border-bottom: 2px solid #096dba;
 	margin-bottom: -2px;
 }
+/*.products_list {
+	width: 810px;
+}*/
 
 .products_item {
 	float: left;
-	width: 25%;
+	width: 24.8%;
 	padding-bottom: 22px;
 }
 .products_item p {
@@ -507,13 +512,11 @@
 	display: table;
 }
 .item_img a {
-	display: table-cell;
 	vertical-align: middle;
-
+	display: table-cell;
 }
 .item_img img {
 
-	
 }
 .products_item .money {
 	color: #d4105a;

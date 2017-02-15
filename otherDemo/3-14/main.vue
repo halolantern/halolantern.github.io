@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索引擎</title>
+</head>
+<body>
+	<div id="search-box">
+		<div class="engineSelect">
+			<span  class="sel" v-text="defaultEngine.desc" v-on:click="toggleList"></span>
+			<ul id="engine-more" v-if="isOpen">
+				<li v-for="its in engine" v-on:click="changeEngine(its.type)" v-text="its.desc"></li>
+			</ul>
+		</div>
+		<div class="search">
+			<form class="searchForm" v-bind="{action : defaultEngine.link, target : '_blank'}">
+				<input  class="searchText" type="text" v-bind="{name : defaultEngine.name}" v-on:focus="textFocus" v-on:blur="textBlur" v-bind:style="{boxShadow: shadow }">
+				<input class="searchSubmit" type="submit" value="搜索">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
+
+<!-- JS -->
+<script type="text/javascript" src="./vue.js"></script>
+<script type="text/javascript">
+    
+    var search = new Vue({
+        el : "#search-box",
+        data : {
+            shadow: null,
+            defaultEngine : '', //默认的搜索引擎
+            isOpen : false, 
+            engine : [
+                {
+                    desc : "百度搜索",
+                    link : "https://www.baidu.com/s",
+                    type : "baidu",
+                    name : "wd"
+                },
+                {
+                    desc : "必应搜索",
+                    link : "https://cn.bing.com/search",
+                    type : "bing",
+                    name : "q"
+                },
+                {
+                    desc : "谷歌搜索",
+                    link : "https://www.google.com/search",
+                    type : "google",
+                    name : "q"
+                },
+                {
+                    desc : "搜狗搜索",
+                    link : "https://sogou.com/web",
+                    type : "sougou",
+                    name : "query"
+                },
+                {
+                    desc : "360搜索",
+                    link : "https://www.so.com/s?",
+                    type : "360",
+                    name : "q"
+                }
+            ],
+            copyEngine: []
+        },
+        methods : {
+            //切换列表是否显示
+            toggleList: function() {
+                this.isOpen = !this.isOpen;
+            },
+
+            //切换搜索引擎
+            changeEngine: function(type) {
+                var that = this;
+                that.engine.forEach(function(el, i){
+                    if (el.type === type ) {
+                        that.defaultEngine = that.engine[i];
+                    }
+                });
+                that.copyEngineFn(that.engine, that.copyEngine);
+                that.deletDefault();
+                that.toggleList();
+            },  
+            //初始化，设置默认搜索引擎
+            init: function() {
+                var that = this;
+                that.setDefaultEngine(that.engine[0]);
+                that.copyEngineFn(that.copyEngine, that.engine);
+                that.deletDefault();
+            },
+            //设置默认引擎
+            setDefaultEngine: function(engine) {
+               
+                this.defaultEngine = engine;
+            },
+            //删除默认引擎
+            deletDefault: function() {
+                var that = this;
+                that.engine.forEach(function(el, i) {
+                    if (el.type === that.defaultEngine.type ) {
+                        that.engine.splice(i, 1);
+                    }
+                })
+            },
+            //复制所有数组所有引擎到备用数组
+            copyEngineFn: function(a, b) {
+                var that = this;
+                b.forEach(function(el, i) {
+                    a[i] = b[i];
+                })
+            },
+            textFocus: function() {
+                this.shadow = "5px 5px 10px #ccc";
+            },
+            textBlur: function() {
+                this.shadow = "";
+            }
+        }
+    });
+    search.init();
+</script>
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        overflow-y: hidden;
+    }
+    #search-box {
+        width: 700px;
+        margin: 0 auto;
+        padding-top: 150px;
+    }
+    .engineSelect {
+        float: left;
+    }
+    .sel,
+    #engine-more li {
+        width: 155px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: black;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+    #engine-more li:hover {
+        background-color: orange;
+    }
+    /*默认搜索引擎*/
+    .sel {
+        display: inline-block;
+    }
+    /*搜索引擎列表*/
+    #engine-more {
+        list-style: none;
+    }
+
+    .search {
+        float: left;
+        height: 40px;
+        margin-left: 20px;
+    }
+    /*表单*/
+    .searchForm {
+        height: 40px;
+    }
+    /*搜索框*/
+    .searchText {
+        float: left;
+        width: 300px;
+        height: 40px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        padding: 0 10px;
+        outline: none;
+    }
+    /*提交按钮*/
+    .searchSubmit {
+        float: left;
+        width: 60px;
+        height:  40px;
+        line-height: 40px;
+        margin-left: 30px;
+        font-size: 15px;
+        background-color: #ff5400;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    
+</style>
+
+
+
+
+
+
+
+
+
+
+
+

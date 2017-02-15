@@ -5,8 +5,11 @@
 }
 
 .index_banner .index_banner_bg {
-	height: 570px;
 	overflow: hidden;
+	height: 570px;
+	
+	width: 1500px;
+	margin: 0 auto;
 	
 }
 

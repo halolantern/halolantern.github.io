@@ -6,9 +6,9 @@
 </head>
 <body>
     <div id="search-box">
-        <div class="engineSelect">
+        <div class="engineSelect" v-on:click="toggleList">
             <div class="sel" >
-                <span  v-html="defaultEngine.desc" v-on:click="toggleList"></span>
+                <span  v-html="defaultEngine.desc" ></span>
                 <div class="arrow"></div>
             </div>
             

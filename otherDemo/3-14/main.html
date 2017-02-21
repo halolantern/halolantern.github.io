@@ -5,26 +5,30 @@
     <title>搜索引擎</title>
 </head>
 <body>
-	<div id="search-box">
-		<div class="engineSelect">
-			<span  class="sel" v-text="defaultEngine.desc" v-on:click="toggleList"></span>
-			<ul id="engine-more" v-if="isOpen">
-				<li v-for="its in engine" v-on:click="changeEngine(its.type)" v-text="its.desc"></li>
-			</ul>
-		</div>
-		<div class="search">
-			<form class="searchForm" v-bind="{action : defaultEngine.link, target : '_blank'}">
-				<input  class="searchText" type="text" v-bind="{name : defaultEngine.name}" v-on:focus="textFocus" v-on:blur="textBlur" v-bind:style="{boxShadow: shadow }">
-				<input class="searchSubmit" type="submit" value="搜索">
-			</form>
-		</div>
-	</div>
+    <div id="search-box">
+        <div class="engineSelect">
+            <div class="sel" >
+                <span  v-html="defaultEngine.desc" v-on:click="toggleList"></span>
+                <div class="arrow"></div>
+            </div>
+            
+            <ul id="engine-more" v-if="isOpen">
+                <li v-for="its in engine" v-on:click="changeEngine(its.type)" v-text="its.desc"></li>
+            </ul>
+        </div>
+        <div class="search">
+         <form class="searchForm" v-bind="{action : defaultEngine.link, target : '_blank'}">
+            <input  class="searchText" type="text" v-bind="{name : defaultEngine.name}" v-on:focus="textFocus" v-on:blur="textBlur" v-bind:style="{boxShadow: shadow }">
+            <input class="searchSubmit" type="submit" value="搜索">
+        </form>
+    </div>
+</div>
 </body>
 </html>
 
 
 <!-- JS -->
-<script type="text/javascript" src="./vue.js"></script>
+<script type="text/javascript" src="./vue.min.js"></script>
 <script type="text/javascript">
     
     var search = new Vue({
@@ -34,36 +38,36 @@
             defaultEngine : '', //默认的搜索引擎
             isOpen : false, 
             engine : [
-                {
-                    desc : "百度搜索",
-                    link : "https://www.baidu.com/s",
-                    type : "baidu",
-                    name : "wd"
-                },
-                {
-                    desc : "必应搜索",
-                    link : "https://cn.bing.com/search",
-                    type : "bing",
-                    name : "q"
-                },
-                {
-                    desc : "谷歌搜索",
-                    link : "https://www.google.com/search",
-                    type : "google",
-                    name : "q"
-                },
-                {
-                    desc : "搜狗搜索",
-                    link : "https://sogou.com/web",
-                    type : "sougou",
-                    name : "query"
-                },
-                {
-                    desc : "360搜索",
-                    link : "https://www.so.com/s?",
-                    type : "360",
-                    name : "q"
-                }
+            {
+                desc : "百度搜索",
+                link : "https://www.baidu.com/s",
+                type : "baidu",
+                name : "wd"
+            },
+            {
+                desc : "必应搜索",
+                link : "https://cn.bing.com/search",
+                type : "bing",
+                name : "q"
+            },
+            {
+                desc : "谷歌搜索",
+                link : "https://www.google.com/search",
+                type : "google",
+                name : "q"
+            },
+            {
+                desc : "搜狗搜索",
+                link : "https://sogou.com/web",
+                type : "sougou",
+                name : "query"
+            },
+            {
+                desc : "360搜索",
+                link : "https://www.so.com/s?",
+                type : "360",
+                name : "q"
+            }
             ],
             copyEngine: []
         },
@@ -94,7 +98,7 @@
             },
             //设置默认引擎
             setDefaultEngine: function(engine) {
-               
+             
                 this.defaultEngine = engine;
             },
             //删除默认引擎
@@ -196,7 +200,16 @@
         cursor: pointer;
     }
 
-    
+    .arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        margin-bottom: 2px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #ff5400;
+    }
 </style>
 
 
